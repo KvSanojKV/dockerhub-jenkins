@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         KUBECONFIG   = '/home/jenkins/.kube/config'
-        DOCKER_IMAGE = 'sanjayy8790/jenkins-build'
+        DOCKER_IMAGE = 'sanojkv/jenkins-build'
         DOCKER_TAG   = 'latest'
     }
 
@@ -28,9 +28,9 @@ pipeline {
             string(credentialsId: 'dockerhub-credentials', variable: 'DOCKER_TOKEN')
           ]) {
             sh '''
-              echo "$DOCKER_TOKEN" | docker login -u sanjayy8790 --password-stdin
+              echo "$DOCKER_TOKEN" | docker login -u sanojkv --password-stdin
 
-              docker push sanjayy8790/jenkins-build:latest
+              docker push sanojkv/jenkins-build:latest
             '''
          }
      }
